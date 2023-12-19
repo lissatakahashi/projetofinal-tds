@@ -1,0 +1,38 @@
+@page
+@model ProjetoFinal.Pages.Nota.Edit
+
+<h1>Editar Notas</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-dange"></div>
+            <input type="hidden" asp-for="NotaModel.NotaID">
+            <div class="form-group">
+                <label asp-for="NotaModel.Prova1"></label>
+                <input asp-for="NotaModel.Prova1" class="form-control" placeholder="Primeira nota" type="number" step="0.1" min="0" max="10" required/>
+                <span asp-validation-for="NotaModel.Prova1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NotaModel.Prova2"></label>
+                <input asp-for="NotaModel.Prova2" class="form-control" placeholder="Segunda nota" type="number" step="0.1" min="0" max="10" required/>
+                <span asp-validation-for="NotaModel.Prova2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NotaModel.Trabalho"></label>
+                <input asp-for="NotaModel.Trabalho" class="form-control" placeholder="Nota do trabalho" type="number" step="0.1" min="0" max="10" required/>
+                <span asp-validation-for="NotaModel.Trabalho" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NotaModel.Atividade"></label>
+                <input asp-for="NotaModel.Atividade" class="form-control" placeholder="Nota da atividade" type="number" step="0.1" min="0" max="10" required/>
+                <span asp-validation-for="NotaModel.Atividade" class="text-danger"></span>
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Salvar">
+                <a asp-page="/Nota/Index" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>

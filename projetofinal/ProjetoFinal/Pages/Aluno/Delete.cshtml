@@ -1,0 +1,18 @@
+@page
+@model ProjetoFinal.Pages.Aluno.Delete
+
+<div>
+    <h1>Detalhes do aluno para remover</h1>
+
+    <p><strong>Nome do aluno:</strong> @Model.AlunoModel.Nome</p>
+    <p><strong>E-mail:</strong> @Model.AlunoModel.Telefone</p>
+    <p><strong>Data de nascimento:</strong> @Model.AlunoModel.DataNascimento</p>
+    <p><strong>Diagnóstico:</strong> @Model.AlunoModel.Diagnostico</p>
+</div>
+
+<form method="post">
+    <div class="form-group">
+        <input type="submit" value="Delete" class="btn btn-danger">
+        <a asp-page="/Aluno/Index" class="btn btn-primary">Retornar para a lista de alunos</a>
+    </div>
+</form>

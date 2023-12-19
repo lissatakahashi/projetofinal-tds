@@ -1,0 +1,38 @@
+@page
+@model ProjetoFinal.Pages.Aluno.Index
+
+<h1 class="display-4">Lista de Alunos</h1>
+
+<hr>
+<td><a asp-page="/Aluno/Create">Adicionar novo aluno</a></td>
+<hr>
+
+<div>
+    <table class="table table-bordered table-striped table-hover-custom">
+        <thead>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.AlunoList[0].AlunoID)</td>
+                <td>@Html.DisplayNameFor(model => model.AlunoList[0].Nome)</td>
+                <td>@Html.DisplayNameFor(model => model.AlunoList[0].Telefone)</td>
+                <td>@Html.DisplayNameFor(model => model.AlunoList[0].DataNascimento)</td>
+                <td>@Html.DisplayNameFor(model => model.AlunoList[0].Diagnostico)</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var alunoModel in Model.AlunoList.OrderBy(a => a.Nome))
+            {
+                <tr>
+                    <td>@Html.DisplayFor(model => alunoModel.AlunoID)</td>
+                    <td>@Html.DisplayFor(model => alunoModel.Nome)</td>
+                    <td>@Html.DisplayFor(model => alunoModel.Telefone)</td>
+                    <td>@Html.DisplayFor(model => alunoModel.DataNascimento)</td>
+                    <td>@Html.DisplayFor(model => alunoModel.Diagnostico)</td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@alunoModel.AlunoID">Editar</a>
+                        <a asp-page="./Delete" asp-route-id="@alunoModel.AlunoID">Remover</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>    
+</div>

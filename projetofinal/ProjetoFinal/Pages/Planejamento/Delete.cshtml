@@ -1,0 +1,17 @@
+@page
+@model ProjetoFinal.Pages.Planejamento.Delete
+
+<h1>Detalhes do Planejamento Para Remover</h1>
+
+<div>
+    <p><strong>Título:</strong> @Model.PlanejamentoModel.Titulo</p>
+    <p><strong>Descrição:</strong> @Model.PlanejamentoModel.Descricao</p>
+    <p><strong>Data:</strong> @Model.PlanejamentoModel.Data</p>
+</div>
+
+<form method="post">
+    <div class="form-group">
+        <input type="submit" value="Delete" class="btn btn-danger">
+        <a asp-page="/Planejamento/Index" class="btn btn-primary">Retornar para o planejamento</a>
+    </div>
+</form>

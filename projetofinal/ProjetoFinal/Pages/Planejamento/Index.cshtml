@@ -1,0 +1,38 @@
+@page
+@model ProjetoFinal.Pages.Planejamento.Index
+
+<h1 class="display-4">Planejamento</h1>
+
+<img src="~/images/professora.jpg" alt="professora" width="200" height="200">
+
+<hr>
+<td><a asp-page="/Planejamento/Create">Adicionar</a></td>
+<hr>
+
+<div>
+    <table class="table table-bordered table-striped table-hover-custom">
+        <thead>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.PlanejamentoList[0].PlanejamentoID)</td>
+                <td>@Html.DisplayNameFor(model => model.PlanejamentoList[0].Titulo)</td>
+                <td>@Html.DisplayNameFor(model => model.PlanejamentoList[0].Descricao)</td>
+                <td>@Html.DisplayNameFor(model => model.PlanejamentoList[0].Data)</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var planejamentoModel in Model.PlanejamentoList)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(model => planejamentoModel.PlanejamentoID)</td>
+                    <td>@Html.DisplayFor(model => planejamentoModel.Titulo)</td>
+                    <td>@Html.DisplayFor(model => planejamentoModel.Descricao)</td>
+                    <td>@Html.DisplayFor(model => planejamentoModel.Data)</td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@planejamentoModel.PlanejamentoID">Editar</a>
+                        <a asp-page="./Delete" asp-route-id="@planejamentoModel.PlanejamentoID">Remover</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>    
+</div>

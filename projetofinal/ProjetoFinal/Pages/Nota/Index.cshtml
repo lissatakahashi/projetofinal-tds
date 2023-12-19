@@ -1,0 +1,49 @@
+@page
+@model ProjetoFinal.Pages.Nota.Index
+
+<h1 class="display-4">Notas</h1>
+
+<p>Para o cálculo da média, é levado em conta os seguintes itens:</p>
+<ul>
+    <li>Prova 1: peso 3,5</li>
+    <li>Prova 2: peso 3,5</li>
+    <li>Trabalho: peso 2</li>
+    <li>Atividade: peso 1</li>
+</ul>
+
+<hr>
+    <td><a asp-page="/Nota/Create">Adicionar nota</a></td>
+<hr>
+
+<div class="row">
+    <table class="table table-bordered table-striped table-hover-custom">
+        <thead>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.NotaList[0].NotaID)</td>
+                @* <td>@Html.DisplayNameFor(model => model.NotaList[0].Aluno.Nome)</td> *@
+                <td>@Html.DisplayNameFor(model => model.NotaList[0].Prova1)</td>
+                <td>@Html.DisplayNameFor(model => model.NotaList[0].Prova2)</td>
+                <td>@Html.DisplayNameFor(model => model.NotaList[0].Trabalho)</td>
+                <td>@Html.DisplayNameFor(model => model.NotaList[0].Atividade)</td>
+                <td>Média</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var notaModel in Model.NotaList)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(model => notaModel.NotaID)</td>
+                    <td>@Html.DisplayFor(model => notaModel.Prova1)</td>
+                    <td>@Html.DisplayFor(model => notaModel.Prova2)</td>
+                    <td>@Html.DisplayFor(model => notaModel.Trabalho)</td>
+                    <td>@Html.DisplayFor(model => notaModel.Atividade)</td>
+                    <td>@Html.DisplayFor(model => notaModel.Media)</td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@notaModel.NotaID">Editar</a>
+                        <a asp-page="./Delete" asp-route-id="@notaModel.NotaID">Remover</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
